@@ -1,0 +1,80 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigServerApplication<spring-petclinic-config-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.springframework.samples.petclinic.config.ConfigServerApplication",
+      "projectName": "spring-petclinic-config-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=63057 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic-config-server"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-DiscoveryServerApplication<spring-petclinic-discovery-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.springframework.samples.petclinic.discovery.DiscoveryServerApplication",
+      "projectName": "spring-petclinic-discovery-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55587 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic-discovery-server"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ApiGatewayApplication<spring-petclinic-api-gateway>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.springframework.samples.petclinic.api.ApiGatewayApplication",
+      "projectName": "spring-petclinic-api-gateway",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55825 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic-api-gateway"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CustomersServiceApplication<spring-petclinic-customers-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.springframework.samples.petclinic.customers.CustomersServiceApplication",
+      "projectName": "spring-petclinic-customers-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55674 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic-customers-service"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-VetsServiceApplication<spring-petclinic-vets-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.springframework.samples.petclinic.vets.VetsServiceApplication",
+      "projectName": "spring-petclinic-vets-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55725 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic-vets-service"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-VisitsServiceApplication<spring-petclinic-visits-service>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.springframework.samples.petclinic.visits.VisitsServiceApplication",
+      "projectName": "spring-petclinic-visits-service",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55767 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-petclinic-visits-service"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringBootAdminApplication<spring-petclinic-admin-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.springframework.samples.petclinic.admin.SpringBootAdminApplication",
+      "projectName": "spring-petclinic-admin-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
