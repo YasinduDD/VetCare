@@ -41,7 +41,7 @@
         </dependency>
 
         <!-- Spring Boot Admin -->
-        <dependency>
+        <!-- <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
             <version>${spring-boot-admin.version}</version>
@@ -50,7 +50,7 @@
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-server-ui</artifactId>
             <version>${spring-boot-admin.version}</version>
-        </dependency>
+        </dependency> -->
 
         <!-- Third-party librairies -->
         <dependency>
@@ -63,7 +63,7 @@
         </dependency>
 
     </dependencies>
-
+<!-- 
     <profiles>
         <profile>
             <id>buildDocker</id>
@@ -78,4 +78,4 @@
         </profile>
     </profiles>
 
-</project>
+</project> -->
