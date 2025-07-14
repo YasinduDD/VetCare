@@ -2,6 +2,10 @@
   config:
     activate:
       on-profile: default
+  datasource:
+    url: jdbc:mysql://localhost:3306/petclinic?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 1234qwer
 eureka:
   instance:
     # enable to register multiple app instances with a random server port
