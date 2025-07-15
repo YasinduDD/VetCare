@@ -19,11 +19,14 @@ import org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreakerFactory;
 import org.springframework.samples.petclinic.api.application.CustomersServiceClient;
 import org.springframework.samples.petclinic.api.application.VisitsServiceClient;
+import org.springframework.samples.petclinic.api.application.VetsServiceClient;
 import org.springframework.samples.petclinic.api.dto.OwnerDetails;
 import org.springframework.samples.petclinic.api.dto.Visits;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
@@ -40,13 +43,17 @@ public class ApiGatewayController {
 
     private final VisitsServiceClient visitsServiceClient;
 
+    private final VetsServiceClient vetsServiceClient;
+
     private final ReactiveCircuitBreakerFactory cbFactory;
 
     public ApiGatewayController(CustomersServiceClient customersServiceClient,
                                 VisitsServiceClient visitsServiceClient,
+                                VetsServiceClient vetsServiceClient,
                                 ReactiveCircuitBreakerFactory cbFactory) {
         this.customersServiceClient = customersServiceClient;
         this.visitsServiceClient = visitsServiceClient;
+        this.vetsServiceClient = vetsServiceClient;
         this.cbFactory = cbFactory;
     }
 
@@ -78,6 +85,12 @@ public class ApiGatewayController {
 
     private Mono<Visits> emptyVisitsForPets() {
         return Mono.just(new Visits(List.of()));
+    }
+
+    @PostMapping("vets")
+    public Mono<ResponseEntity<Object>> addVet(@RequestBody Object vet) {
+        return vetsServiceClient.createVet(vet)
+            .map(savedVet -> ResponseEntity.status(201).body(savedVet));
     }
 
     @DeleteMapping("owners/{ownerId}")

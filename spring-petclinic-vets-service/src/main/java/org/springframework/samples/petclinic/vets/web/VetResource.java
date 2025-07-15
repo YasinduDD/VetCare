@@ -23,6 +23,9 @@ import org.springframework.samples.petclinic.vets.model.VetRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.ResponseEntity;
 
 /**
  * @author Juergen Hoeller
@@ -45,5 +48,11 @@ class VetResource {
     @Cacheable("vets")
     public List<Vet> showResourcesVetList() {
         return vetRepository.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<Vet> addVet(@RequestBody Vet vet) {
+        Vet savedVet = vetRepository.save(vet);
+        return ResponseEntity.status(201).body(savedVet);
     }
 }
