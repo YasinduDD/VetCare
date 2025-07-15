@@ -3,15 +3,29 @@
 angular.module("vetForm").controller("VetFormController", [
   "$http",
   "$state",
-  function ($http, $state) {
+  "$stateParams",
+  function ($http, $state, $stateParams) {
     var self = this;
     self.vet = { specialties: [] };
     self.specialties = [];
+    var vetId = $stateParams.vetId;
 
     // Fetch specialties
     $http.get("api/gateway/vets/specialties").then(function (resp) {
       self.specialties = resp.data;
     });
+
+    // If editing, load vet details
+    if (vetId) {
+      $http.get("api/vet/vets").then(function (resp) {
+        var found = resp.data.find(function (v) {
+          return v.id == vetId;
+        });
+        if (found) {
+          self.vet = angular.copy(found);
+        }
+      });
+    }
 
     self.toggleSpecialty = function (specialty) {
       var idx = self.vet.specialties.findIndex(function (s) {
@@ -31,14 +45,19 @@ angular.module("vetForm").controller("VetFormController", [
     };
 
     self.submit = function () {
-      $http
-        .post("api/gateway/vets", self.vet)
+      var req;
+      if (vetId) {
+        req = $http.put("api/gateway/vets/" + vetId, self.vet);
+      } else {
+        req = $http.post("api/gateway/vets", self.vet);
+      }
+      req
         .then(function () {
           $state.go("vets");
         })
         .catch(function (error) {
           alert(
-            "Failed to add vet: " +
+            "Failed to save vet: " +
               (error.data && error.data.message
                 ? error.data.message
                 : "Unknown error")

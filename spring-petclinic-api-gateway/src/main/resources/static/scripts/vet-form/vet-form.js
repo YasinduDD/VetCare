@@ -8,5 +8,10 @@ angular.module("vetForm", ["ui.router"]).config([
       url: "/vets/new",
       template: "<vet-form></vet-form>",
     });
+    $stateProvider.state("vetEdit", {
+      parent: "app",
+      url: "/vets/:vetId/edit",
+      template: "<vet-form></vet-form>",
+    });
   },
 ]);

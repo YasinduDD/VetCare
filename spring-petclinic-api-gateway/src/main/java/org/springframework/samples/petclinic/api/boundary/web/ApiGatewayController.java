@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -97,6 +98,18 @@ public class ApiGatewayController {
     public Mono<ResponseEntity<Object>> getSpecialties() {
         return vetsServiceClient.getSpecialties()
             .map(ResponseEntity::ok);
+    }
+
+    @PutMapping("vets/{vetId}")
+    public Mono<ResponseEntity<Object>> updateVet(@PathVariable Integer vetId, @RequestBody Object vet) {
+        return vetsServiceClient.updateVet(vetId, vet)
+            .map(ResponseEntity::ok);
+    }
+
+    @DeleteMapping("vets/{vetId}")
+    public Mono<ResponseEntity<Void>> deleteVet(@PathVariable Integer vetId) {
+        return vetsServiceClient.deleteVet(vetId)
+            .thenReturn(ResponseEntity.noContent().build());
     }
 
     @DeleteMapping("owners/{ownerId}")

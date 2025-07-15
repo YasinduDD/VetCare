@@ -28,6 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * @author Juergen Hoeller
@@ -63,5 +66,24 @@ class VetResource {
     public ResponseEntity<Vet> addVet(@RequestBody Vet vet) {
         Vet savedVet = vetRepository.save(vet);
         return ResponseEntity.status(201).body(savedVet);
+    }
+
+    @PutMapping("/{vetId}")
+    public ResponseEntity<Vet> updateVet(@PathVariable Integer vetId, @RequestBody Vet vet) {
+        if (!vetRepository.existsById(vetId)) {
+            return ResponseEntity.notFound().build();
+        }
+        vet.setId(vetId);
+        Vet updatedVet = vetRepository.save(vet);
+        return ResponseEntity.ok(updatedVet);
+    }
+
+    @DeleteMapping("/{vetId}")
+    public ResponseEntity<Void> deleteVet(@PathVariable Integer vetId) {
+        if (!vetRepository.existsById(vetId)) {
+            return ResponseEntity.notFound().build();
+        }
+        vetRepository.deleteById(vetId);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -41,4 +41,19 @@ public class VetsServiceClient {
             .retrieve()
             .bodyToMono(Object.class);
     }
+
+    public Mono<Object> updateVet(Integer vetId, Object vet) {
+        return webClientBuilder.build().put()
+            .uri("http://vets-service/vets/" + vetId)
+            .bodyValue(vet)
+            .retrieve()
+            .bodyToMono(Object.class);
+    }
+
+    public Mono<Void> deleteVet(Integer vetId) {
+        return webClientBuilder.build().delete()
+            .uri("http://vets-service/vets/" + vetId)
+            .retrieve()
+            .bodyToMono(Void.class);
+    }
 } 
