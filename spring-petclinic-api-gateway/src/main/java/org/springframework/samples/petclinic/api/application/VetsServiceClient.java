@@ -34,4 +34,11 @@ public class VetsServiceClient {
             .retrieve()
             .bodyToMono(Object.class);
     }
+
+    public Mono<Object> getSpecialties() {
+        return webClientBuilder.build().get()
+            .uri("http://vets-service/vets/specialties")
+            .retrieve()
+            .bodyToMono(Object.class);
+    }
 } 

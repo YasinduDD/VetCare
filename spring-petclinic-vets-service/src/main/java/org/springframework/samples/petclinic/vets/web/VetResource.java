@@ -20,6 +20,8 @@ import java.util.List;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.samples.petclinic.vets.model.Vet;
 import org.springframework.samples.petclinic.vets.model.VetRepository;
+import org.springframework.samples.petclinic.vets.model.Specialty;
+import org.springframework.samples.petclinic.vets.model.SpecialtyRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,15 +41,22 @@ import org.springframework.http.ResponseEntity;
 class VetResource {
 
     private final VetRepository vetRepository;
+    private final SpecialtyRepository specialtyRepository;
 
-    VetResource(VetRepository vetRepository) {
+    VetResource(VetRepository vetRepository, SpecialtyRepository specialtyRepository) {
         this.vetRepository = vetRepository;
+        this.specialtyRepository = specialtyRepository;
     }
 
     @GetMapping
     @Cacheable("vets")
     public List<Vet> showResourcesVetList() {
         return vetRepository.findAll();
+    }
+
+    @GetMapping("/specialties")
+    public List<Specialty> getSpecialties() {
+        return specialtyRepository.findAll();
     }
 
     @PostMapping

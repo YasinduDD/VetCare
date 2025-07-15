@@ -93,6 +93,12 @@ public class ApiGatewayController {
             .map(savedVet -> ResponseEntity.status(201).body(savedVet));
     }
 
+    @GetMapping("vets/specialties")
+    public Mono<ResponseEntity<Object>> getSpecialties() {
+        return vetsServiceClient.getSpecialties()
+            .map(ResponseEntity::ok);
+    }
+
     @DeleteMapping("owners/{ownerId}")
     public Mono<ResponseEntity<Void>> deleteOwner(@PathVariable int ownerId) {
         return customersServiceClient.deleteOwner(ownerId)
