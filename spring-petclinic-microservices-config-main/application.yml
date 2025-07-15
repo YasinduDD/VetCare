@@ -35,7 +35,6 @@ management.endpoints.web.exposure.include: "*"
 # Waiting issue https://github.com/spring-projects/spring-boot/issues/13042
 spring.cloud.refresh.refreshable: false
 
-
 # Logging
 logging.level.org.springframework: INFO
 
@@ -49,7 +48,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: "*"
   metrics:
     export:
       prometheus:
@@ -63,7 +62,7 @@ management:
 spring:
   config:
     activate:
-      on-profile: chaos-monkey      
+      on-profile: chaos-monkey
 management.endpoint.chaosmonkey.enabled: true
 chaos:
   monkey:
@@ -83,7 +82,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/petclinic?allowPublicKeyRetrieval=true&useSSL=false
     username: root
-    password: petclinic
+    password: 1234qwer
   sql:
     init:
       schema-locations: classpath*:db/mysql/schema.sql
