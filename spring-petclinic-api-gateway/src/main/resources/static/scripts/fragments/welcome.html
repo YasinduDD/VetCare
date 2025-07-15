@@ -1,7 +1,60 @@
- <h1>Welcome to Petclinic</h1>
-
+ <!-- <h1>Welcome to Petclinic</h1> -->
+<!-- 
  <div class="row">
   <div class="col-md-12">
    <img class="img-responsive" src="images/pets.png" alt="pets logo" />
   </div>
- </div>
+ </div> -->
+
+ <!-- <div class="row">
+  <div class="col-md-12">
+    <img class="landing-image" src="images/pets.png" alt="pets logo" />
+  </div>
+</div>
+
+<style>
+  .landing-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Crop to fill the screen */
+    display: block;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+</style> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VetCare Landing Page</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .landing-wrapper {
+      width: 85vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .fullscreen-img {
+      width: 80%;
+      height: 80%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-wrapper">
+    <img src="images/pets.png" alt="pets logo" class="fullscreen-img">
+  </div>
+</body>
+</html>
