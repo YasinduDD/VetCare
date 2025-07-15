@@ -1,2 +1,3 @@
 # VetCare
-A distributed vet clinic system
+
+A distributed vet clinic system using micro services
