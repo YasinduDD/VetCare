@@ -21,6 +21,7 @@ import jakarta.validation.constraints.Min;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.customers.web.mapper.OwnerEntityMapper;
 import org.springframework.samples.petclinic.customers.model.Owner;
 import org.springframework.samples.petclinic.customers.model.OwnerRepository;
@@ -88,5 +89,15 @@ class OwnerResource {
         ownerEntityMapper.map(ownerModel, ownerRequest);
         log.info("Saving owner {}", ownerModel);
         ownerRepository.save(ownerModel);
+    }
+    @DeleteMapping("/{ownerId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Void> deleteOwner(@PathVariable("ownerId") int ownerId) {
+        System.out.println("pundima");
+        if (!ownerRepository.existsById(ownerId)) {
+            return ResponseEntity.notFound().build();
+        }
+        ownerRepository.deleteById(ownerId);
+        return ResponseEntity.noContent().build();
     }
 }

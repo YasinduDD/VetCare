@@ -21,18 +21,17 @@ import org.springframework.samples.petclinic.api.application.CustomersServiceCli
 import org.springframework.samples.petclinic.api.application.VisitsServiceClient;
 import org.springframework.samples.petclinic.api.dto.OwnerDetails;
 import org.springframework.samples.petclinic.api.dto.Visits;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.function.Function;
 
-/**
- * @author Maciej Szarlinski
- */
 @RestController
 @RequestMapping("/api/gateway")
 public class ApiGatewayController {
@@ -79,5 +78,11 @@ public class ApiGatewayController {
 
     private Mono<Visits> emptyVisitsForPets() {
         return Mono.just(new Visits(List.of()));
+    }
+
+    @DeleteMapping("owners/{ownerId}")
+    public Mono<ResponseEntity<Void>> deleteOwner(@PathVariable int ownerId) {
+        return customersServiceClient.deleteOwner(ownerId)
+            .thenReturn(ResponseEntity.noContent().build());
     }
 }

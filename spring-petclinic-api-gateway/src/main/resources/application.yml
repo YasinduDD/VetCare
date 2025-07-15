@@ -14,7 +14,7 @@ spring:
           args:
             retries: 1
             statuses: SERVICE_UNAVAILABLE
-            methods: POST
+            methods: POST, DELETE
       routes:
         - id: vets-service
           uri: lb://vets-service
@@ -34,17 +34,9 @@ spring:
             - Path=/api/customer/**
           filters:
             - StripPrefix=2
-        - id: genai-service
-          uri: lb://genai-service
-          predicates:
-            - Path=/api/genai/**
-          filters:
-            - StripPrefix=2
-            - CircuitBreaker=name=genaiCircuitBreaker,fallbackUri=/fallback
-
----
-spring:
-  config:
-    activate:
-      on-profile: docker
-    import: configserver:http://config-server:8888
+        # - id: customers-service-owners-alias
+        #   uri: lb://customers-service
+        #   predicates:
+        #     - Path=/api/owners/**
+        #   filters:
+        #     - RewritePath=/api/owners/(?<segment>.*), /owners/${segment}

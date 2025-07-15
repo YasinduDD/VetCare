@@ -38,4 +38,11 @@ public class CustomersServiceClient {
             .retrieve()
             .bodyToMono(OwnerDetails.class);
     }
+
+    public Mono<Void> deleteOwner(final int ownerId) {
+        return webClientBuilder.build().delete()
+            .uri("http://customers-service/owners/{ownerId}", ownerId)
+            .retrieve()
+            .bodyToMono(Void.class);
+    }
 }
