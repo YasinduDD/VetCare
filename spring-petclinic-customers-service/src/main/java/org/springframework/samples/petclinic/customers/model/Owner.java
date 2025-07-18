@@ -24,16 +24,6 @@ import org.springframework.core.style.ToStringCreator;
 
 import java.util.*;
 
-/**
- * Simple JavaBean domain object representing an owner.
- *
- * @author Ken Krebs
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @author Michael Isvy
- * @author Maciej Szarlinski
- * @author Ramazan Sakin
- */
 @Entity
 @Table(name = "owners")
 public class Owner {

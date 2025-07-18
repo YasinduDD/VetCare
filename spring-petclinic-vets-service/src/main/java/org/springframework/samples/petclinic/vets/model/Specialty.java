@@ -19,9 +19,6 @@ import jakarta.persistence.*;
 
 /**
  * Models a {@link Vet Vet's} specialty (for example, dentistry).
- *
- * @author Juergen Hoeller
- * @author Ramazan Sakin
  */
 
 @Entity

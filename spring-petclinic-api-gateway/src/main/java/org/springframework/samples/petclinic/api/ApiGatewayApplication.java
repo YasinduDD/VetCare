@@ -38,10 +38,6 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import java.time.Duration;
 
-
-/**
- * @author Maciej Szarlinski
- */
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ApiGatewayApplication {

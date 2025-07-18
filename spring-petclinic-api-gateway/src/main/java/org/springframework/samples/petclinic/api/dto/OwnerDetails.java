@@ -18,10 +18,6 @@ package org.springframework.samples.petclinic.api.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
-
-/**
- * @author Maciej Szarlinski
- */
 public record OwnerDetails(
     int id,
     String firstName,

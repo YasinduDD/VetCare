@@ -22,17 +22,6 @@ import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 
 import java.util.*;
-
-/**
- * Simple JavaBean domain object representing a veterinarian.
- *
- * @author Ken Krebs
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @author Arjen Poutsma
- * @author Maciej Szarlinski
- * @author Ramazan Sakin
- */
 @Entity
 @Table(name = "vets")
 public class Vet {

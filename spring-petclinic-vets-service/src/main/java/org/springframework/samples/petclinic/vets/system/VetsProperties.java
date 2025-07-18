@@ -17,11 +17,6 @@ package org.springframework.samples.petclinic.vets.system;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-/**
- * Typesafe custom configuration.
- *
- * @author Maciej Szarlinski
- */
 @ConfigurationProperties(prefix = "vets")
 public record VetsProperties(
     Cache cache

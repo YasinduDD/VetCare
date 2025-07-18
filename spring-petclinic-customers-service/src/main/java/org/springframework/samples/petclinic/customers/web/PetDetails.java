@@ -21,9 +21,6 @@ import org.springframework.samples.petclinic.customers.model.PetType;
 
 import java.util.Date;
 
-/**
- * @author mszarlinski@bravurasolutions.com on 2016-12-05.
- */
 
 record PetDetails(
 

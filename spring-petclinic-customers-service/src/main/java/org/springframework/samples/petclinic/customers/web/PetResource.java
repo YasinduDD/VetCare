@@ -25,13 +25,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- * @author Maciej Szarlinski
- * @author Ramazan Sakin
- */
 @RestController
 @Timed("petclinic.pet")
 class PetResource {

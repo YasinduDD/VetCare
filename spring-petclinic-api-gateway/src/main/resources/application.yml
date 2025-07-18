@@ -34,9 +34,3 @@ spring:
             - Path=/api/customer/**
           filters:
             - StripPrefix=2
-        # - id: customers-service-owners-alias
-        #   uri: lb://customers-service
-        #   predicates:
-        #     - Path=/api/owners/**
-        #   filters:
-        #     - RewritePath=/api/owners/(?<segment>.*), /owners/${segment}

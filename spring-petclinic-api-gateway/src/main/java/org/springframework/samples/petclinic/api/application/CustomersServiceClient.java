@@ -19,10 +19,6 @@ import org.springframework.samples.petclinic.api.dto.OwnerDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-/**
- * @author Maciej Szarlinski
- */
 @Component
 public class CustomersServiceClient {
 

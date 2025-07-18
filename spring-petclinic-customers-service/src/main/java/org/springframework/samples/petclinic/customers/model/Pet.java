@@ -21,16 +21,6 @@ import org.springframework.core.style.ToStringCreator;
 
 import java.util.Date;
 import java.util.Objects;
-
-/**
- * Simple business object representing a pet.
- *
- * @author Ken Krebs
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @author Maciej Szarlinski
- * @author Ramazan Sakin
- */
 @Entity
 @Table(name = "pets")
 public class Pet {

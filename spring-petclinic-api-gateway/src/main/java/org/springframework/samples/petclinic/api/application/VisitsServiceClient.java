@@ -23,10 +23,6 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 import static java.util.stream.Collectors.joining;
-
-/**
- * @author Maciej Szarlinski
- */
 @Component
 public class VisitsServiceClient {
 
